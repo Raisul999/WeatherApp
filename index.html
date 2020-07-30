@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body class="trans">
     <div class="location">
         <h1 class="location-timezone">Timezone</h1>
         <canvas class="icon" width="128" height="128"></canvas>
@@ -20,18 +20,24 @@
     <div class="temperature">
         <div class="degree-section">
             <h2 class="temperature-degree"></h2>
-            <span>℉</span>
+            <span></span>
         </div>
 
         <div class="temperature-description"> </div>
-        <div class="wind"></div>
+
+        <div class="float">
+
+            <div class="wind"></div>
+            <div class="pressure"></div>
+            <div class="humidity"></div>
+        </div>
 
 
 
 
     </div>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="skycons.js" async defer></script>
     <script src="app.js" async defer></script>
 </body>

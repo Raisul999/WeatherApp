@@ -2,11 +2,15 @@ window.addEventListener('load', () => {
 
     let long;
     let lat;
+    let Time;
+    let convTime;
     let temperatureDegree = document.querySelector(".temperature-degree");
     let temperatureDescription = document.querySelector(".temperature-description");
     let locationTimezone = document.querySelector(".location-timezone");
     let temperatureSection = document.querySelector(".temperature");
     let windVal = document.querySelector(".wind");
+    let pressVal = document.querySelector(".pressure");
+    let humidVal = document.querySelector(".humidity");
     const temperatureSpan = document.querySelector(".temperature span");
 
 
@@ -24,11 +28,17 @@ window.addEventListener('load', () => {
                 })
                 .then(data => {
                     console.log(data);
-                    const { temperature, summary, icon, windSpeed, pressure } = data.currently;
+                    const { temperature, summary, icon, windSpeed, pressure, humidity, time } = data.currently;
                     temperatureDegree.innerHTML = Math.floor(temperature);
                     temperatureDescription.innerHTML = summary;
                     locationTimezone.innerHTML = data.timezone;
-                    windVal.innerHTML = "Wind: " + windSpeed + "  Km/h  ";
+                    windVal.innerHTML = `Wind: ${windSpeed} km/h`;
+                    pressVal.innerHTML = `Pressure: ${pressure} mb`;
+                    humidVal.innerHTML = `Humidity: ${humidity*100}%`;
+
+                    Time = new Date(time);
+                    convTime = Time.getHours() + 6;
+
 
 
 
@@ -49,10 +59,27 @@ window.addEventListener('load', () => {
 
                     });
 
+
+
+                    $(document).ready(function() {
+                        if (convTime == 19 && convTime <= 6) {
+                            $("trans").css("background-image", "url('night.jpg')");
+                        }
+
+                    });
+
+
+
                 });
+
 
         });
     }
+
+
+
+
+
 
     function setIcons(icon, iconID) {
         const skycons = new Skycons({ color: "white" });

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+.trans {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -13,15 +13,17 @@ body {
     background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
     font-family: sans-serif;
     color: white;
+    background-image: url("day.jpg");
 }
 
 .location,
 .temperature {
     height: 15vh;
-    width: 50%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .temperature {
@@ -32,6 +34,11 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+.float {
+    display: flex;
+    align-items: right;
 }
 
 .degree-section span {
@@ -45,7 +52,7 @@ body {
 
 .temperature-description {
     padding-top: 10px;
-    padding-right: 60px;
+    padding-right: 40px;
     text-align: center;
     font-size: 25px;
 }
@@ -56,11 +63,31 @@ body {
 }
 
 .temperature-degree {
-    padding-right: 30px;
+    padding-right: 50px;
 }
 
-.wind {
-    font-size: 20px;
-    padding-right: 40px;
+.pressure,
+.wind,
+.humidity {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding-right: 20px;
     padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width:500px) {
+    .location-timezone {
+        height: 25vh;
+    }
 }
