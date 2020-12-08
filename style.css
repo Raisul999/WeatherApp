@@ -6,14 +6,16 @@
 
 .trans {
     height: 100vh;
+    width: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+    /* background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143)); */
     font-family: sans-serif;
     color: white;
     background-image: url("day.jpg");
+    /* background-repeat: no-repeat; */
 }
 
 .location,

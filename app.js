@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
             lat = position.coords.latitude;
             const proxy = "https://cors-anywhere.herokuapp.com/";
             const api = `${proxy}https://api.darksky.net/forecast/461a7293cf25f10aab0751aa67741151/${lat},${long}`;
-
+            const api1 = `${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=b5f2832814df693e12f868c4f3cac87b`
             fetch(api)
                 .then(response => {
                     return response.json();
@@ -35,9 +35,19 @@ window.addEventListener('load', () => {
                     windVal.innerHTML = `Wind: ${windSpeed} km/h`;
                     pressVal.innerHTML = `Pressure: ${pressure} mb`;
                     humidVal.innerHTML = `Humidity: ${humidity*100}%`;
+                    Time = new Date()
+                    var hour = Time.getHours()
 
-                    Time = new Date(time);
-                    convTime = Time.getHours() + 6;
+                    if (hour >= 19 || hour <= 6) {
+                        $(".trans").css("background-image", "url('night.jpg')");
+                        console.log("inside if")
+
+                    } else {
+                        $(".trans").css("background-image", "url('day.jpg')");
+                    }
+
+
+                    console.log(hour)
 
 
 
@@ -61,12 +71,10 @@ window.addEventListener('load', () => {
 
 
 
-                    $(document).ready(function() {
-                        if (convTime == 19 && convTime <= 6) {
-                            $("trans").css("background-image", "url('night.jpg')");
-                        }
 
-                    });
+
+
+
 
 
 
